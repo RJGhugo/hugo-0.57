@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="de">
+   <head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width initial-scale=1.0">
+	
+	
+
+	<link rel="stylesheet" href="/css/style.css" type="text/css">
+
+	<script language="javascript" src="/js/email.js"></script>
+
+	<link type="text/css" href="/css/lightgallery.css" rel="stylesheet">
+	<script src="/js/jquery.min.js"></script>
+	<script src="/js/lightgallery-all.min.js"></script>
+	<script src="/js/picturefill.min.js"></script>
+	<script src="/js/jquery.mousewheel.min.js"></script>
+
+	<script src="/js/lg-autoplay.min.js"></script>
+	<script src="/js/lg-fullscreen.min.js"></script>
+	<script src="/js/lg-hash.min.js"></script>
+	<script src="/js/lg-pager.min.js"></script>
+	<script src="/js/lg-share.min.js"></script>
+	<script src="/js/lg-thumbnail.min.js"></script>
+	<script src="/js/lg-video.min.js"></script>
+	<script src="/js/lg-zoom.min.js"></script>
+
+	<title>
+	
+   1-300 - raphaels fotoseite
+
+	</title>
+   </head>
+
+   <body>
+   <center>
+      
+
+
+
+<h1>1-300</h1>
+
+<hr>
+
+<a href="/">Home</a>
+
+
+
+<select name="schlagworte" onchange="location = this.value;">
+   <option value="">Schlagworte</option>
+
+   <option value="/schlagworte/aktuell">aktuell</option>
+
+   <option value="/schlagworte/aquarell">aquarell</option>
+
+   <option value="/schlagworte/architektur">architektur</option>
+
+   <option value="/schlagworte/auto">auto</option>
+
+   <option value="/schlagworte/blumen">blumen</option>
+
+   <option value="/schlagworte/diverses">diverses</option>
+
+   <option value="/schlagworte/kanton-zug">kanton-zug</option>
+
+   <option value="/schlagworte/kunst">kunst</option>
+
+   <option value="/schlagworte/landschaft">landschaft</option>
+
+   <option value="/schlagworte/langzeit">langzeit</option>
+
+   <option value="/schlagworte/nachbarschaft-st.-michael-zug">nachbarschaft-st.-michael-zug</option>
+
+   <option value="/schlagworte/pflanzen">pflanzen</option>
+
+   <option value="/schlagworte/sport">sport</option>
+
+   <option value="/schlagworte/vogel">vogel</option>
+
+   <option value="/schlagworte/zug">zug</option>
+
+</select>
+
+<hr>
+
+
+
+<select name="Kamera" onchange="location = this.value;">
+   <option value="">Kamera Modell</option>
+
+   <option value="/bild_kameras/fujifilm-gfx-50s">fujifilm-gfx-50s</option>
+
+</select>
+
+
+
+<select name="Foto Datum" onchange="location = this.value;">
+   <option value="">Foto Datum</option>
+
+   <option value="/bild_daten/2019.07.24">2019.07.24</option>
+
+   <option value="/bild_daten/2019.07.27">2019.07.27</option>
+
+   <option value="/bild_daten/2019.07.28">2019.07.28</option>
+
+   <option value="/bild_daten/2019.08.16">2019.08.16</option>
+
+</select>
+
+
+
+<select name="Blende" onchange="location = this.value;">
+   <option value="">Blende</option>
+
+   <option value="/bild_blenden/16.0">16.0</option>
+
+   <option value="/bild_blenden/2.8">2.8</option>
+
+   <option value="/bild_blenden/5.6">5.6</option>
+
+</select>
+
+
+
+<select name="Brennweite" onchange="location = this.value;">
+   <option value="">Brennweite</option>
+
+   <option value="/bild_brennweiten/63.0-mm">63.0-mm</option>
+
+</select>
+
+
+
+<select name="Verschlusszeit" onchange="location = this.value;">
+   <option value="">Verschlusszeit</option>
+
+   <option value="/bild_verschluesse/1-125">1-125</option>
+
+   <option value="/bild_verschluesse/1-160">1-160</option>
+
+   <option value="/bild_verschluesse/1-1600">1-1600</option>
+
+   <option value="/bild_verschluesse/1-180">1-180</option>
+
+   <option value="/bild_verschluesse/1-210">1-210</option>
+
+   <option value="/bild_verschluesse/1-300">1-300</option>
+
+   <option value="/bild_verschluesse/1-480">1-480</option>
+
+   <option value="/bild_verschluesse/1-600">1-600</option>
+
+   <option value="/bild_verschluesse/1-680">1-680</option>
+
+   <option value="/bild_verschluesse/1-950">1-950</option>
+
+   <option value="/bild_verschluesse/3.2">3.2</option>
+
+</select>
+
+
+
+<select name="ISO" onchange="location = this.value;">
+   <option value="">ISO</option>
+
+   <option value="/bild_isos/100">100</option>
+
+   <option value="/bild_isos/125">125</option>
+
+   <option value="/bild_isos/2500">2500</option>
+
+   <option value="/bild_isos/800">800</option>
+
+</select>
+
+<hr>
+
+<div id="animated-thumbnails">
+
+
+ 
+
+    <a href="/bilder/20190728/_DSF9804_04.jpg"><img src="/bilder/20190728/_DSF9804_04.jpg_klein.jpg" width="20%" hight="20%" title="[2019.07.28 Fujifilm GFX 50S f2.8 63.0 mm 800 1-300 Sek.]"></a>
+     
+
+
+
+
+
+</div>
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#animated-thumbnails").lightGallery(
+		{
+mode:'lg-fade',
+
+		share: false,
+		thumbnail:false,
+toogleThumb:true,
+pullCaptionUp:true,
+		progressBar:false,
+		autoplay:true,
+		fourceAutoplay:true,
+		}
+	);
+        });
+    </script>
+
+
+
+
+
+
+
+
+      
+         <hr>
+         
+         <a href="/">Home</a>&nbsp;<script>mail("fotoseite","2gdoc?h",-2,"")</script>
+      
+
+      <p><font size="1">© Raphael Good</font></p>
+   </center>
+   </body>
+</html>
+

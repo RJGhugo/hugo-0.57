@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="de">
+   <head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width initial-scale=1.0">
+	{{ block "head" . }}
+	{{ end }}
+
+	<link rel="stylesheet" href="/css/style.css" type="text/css">
+
+	<script language="javascript" src="/js/email.js"></script>
+
+	<link type="text/css" href="/css/lightgallery.css" rel="stylesheet">
+	<script src="/js/jquery.min.js"></script>
+	<script src="/js/lightgallery-all.min.js"></script>
+	<script src="/js/picturefill.min.js"></script>
+	<script src="/js/jquery.mousewheel.min.js"></script>
+
+	<script src="/js/lg-autoplay.min.js"></script>
+	<script src="/js/lg-fullscreen.min.js"></script>
+	<script src="/js/lg-hash.min.js"></script>
+	<script src="/js/lg-pager.min.js"></script>
+	<script src="/js/lg-share.min.js"></script>
+	<script src="/js/lg-thumbnail.min.js"></script>
+	<script src="/js/lg-video.min.js"></script>
+	<script src="/js/lg-zoom.min.js"></script>
+
+	<title>
+	{{ block "title" . }}
+		{{ .Site.Title }}
+	{{ end }}
+	</title>
+   </head>
+
+   <body>
+   <center>
+      {{ block "main" . }}
+      {{ end }}
+
+
+      {{ block "fusszeile" . }}
+         <hr>
+         {{ $senden := .Permalink }}
+         <a href="/">Home</a>&nbsp;<script>mail("fotoseite","2gdoc?h",-2,"")</script>
+      {{ end }}
+
+      <p><font size="1">{{ $.Site.Params.Fotograf }}</font></p>
+   </center>
+   </body>
+</html>
+

@@ -1,0 +1,128 @@
+{{ define "head" }}
+   <meta name="description" content="{{ $.Site.Params.Beschreibung }}">
+
+   <meta name="keywords" content="
+      {{ range $name, $taxonomy := .Site.Taxonomies.schlagworte }}
+         {{ $name }},
+      {{ end }}
+      Fujifilm GFX 50s,
+      Canon EOS 6d
+   ">
+
+{{ end }}
+
+{{ define "main" }}
+
+<h1>{{ .Title }}</h1>
+<hr>
+
+{{ range first 1 .Data.Pages }}
+
+{{ $breite := int .Params.bildbreite }}
+{{ $hoehe := int .Params.bildhoehe }}
+
+{{ if lt $breite $hoehe }}
+   <a href="/schlagworte/aktuell/"><img src = "{{ .Params.pfad_klein }}" width="{{ div $breite 10 }}" hight="{{ div $hoehe 10 }}"></a>
+{{ end }}
+
+{{ if le $hoehe $breite }}
+   {{ if le $breite 2500 }}
+      <a href="/schlagworte/aktuell/"><img src = "{{ .Params.pfad_klein }}" width="{{ div $breite 4 }}" hight="{{ div $hoehe 4 }}"></a>
+   {{ end }}
+   
+   {{ if ge $breite 2500 }}
+      <a href="/schlagworte/aktuell/"><img src = "{{ .Params.pfad_klein }}" width="{{ div $breite 8 }}" hight="{{ div $hoehe 8 }}"></a>
+   {{ end }}
+{{ end }}
+
+{{ end }}
+
+<hr>
+
+<!-- Schlagworte -->
+
+<select name="schlagworte" onchange="location = this.value;">
+   <option value="">Schlagworte</option>
+{{ range $name, $taxonomy := .Site.Taxonomies.schlagworte }}
+   <option value="/schlagworte/{{ $name | urlize }}">{{ $name }}</option>
+{{ end }}
+</select>
+
+<hr>
+
+<!-- Kamera Modell -->
+
+<select name="Kamera" onchange="location = this.value;">
+   <option value="">Kamera Modell</option>
+{{ range $name, $taxonomy := .Site.Taxonomies.bild_kameras }}
+   <option value="/bild_kameras/{{ $name | urlize }}">{{ $name }}</option>
+{{ end }}
+</select>
+
+<!-- Foto Datum -->
+
+<select name="Foto Datum" onchange="location = this.value;">
+   <option value="">Foto Datum</option>
+{{ range $name, $taxonomy := .Site.Taxonomies.bild_daten }}
+   <option value="/bild_daten/{{ $name | urlize }}">{{ $name }}</option>
+{{ end }}
+</select>
+
+<!-- Blende -->
+
+<select name="Blende" onchange="location = this.value;">
+   <option value="">Blende</option>
+{{ range $name, $taxonomy := .Site.Taxonomies.bild_blenden }}
+   <option value="/bild_blenden/{{ $name | urlize }}">{{ $name }}</option>
+{{ end }}
+</select>
+
+<!-- Brennweite -->
+
+<select name="Brennweite" onchange="location = this.value;">
+   <option value="">Brennweite</option>
+{{ range $name, $taxonomy := .Site.Taxonomies.bild_brennweiten }}
+   <option value="/bild_brennweiten/{{ $name | urlize }}">{{ $name }}</option>
+{{ end }}
+</select>
+
+<!-- Verschlusszeit -->
+
+<select name="Verschlusszeit" onchange="location = this.value;">
+   <option value="">Verschlusszeit</option>
+{{ range $name, $taxonomy := .Site.Taxonomies.bild_verschluesse }}
+   <option value="/bild_verschluesse/{{ $name | urlize }}">{{ $name }}</option>
+{{ end }}
+</select>
+
+<!-- ISO -->
+
+<select name="ISO" onchange="location = this.value;">
+   <option value="">ISO</option>
+{{ range $name, $taxonomy := .Site.Taxonomies.bild_isos }}
+   <option value="/bild_isos/{{ $name | urlize }}">{{ $name }}</option>
+{{ end }}
+</select>
+
+<hr>
+
+<!-- priorisierte Schlagworte -->
+
+{{ range $name, $taxonomy := .Site.Taxonomies.schlagworte }}
+   {{ if in $.Site.Params.Vorschau $name }}
+            <a href="/schlagworte/{{ $name | urlize }}">
+            {{ range $name, $taxonomy := first 1 ( shuffle (first 10 ($taxonomy.Pages))) }}
+<div class="container">
+  <img class="image" src="{{ .Params.pfad_klein }}">
+
+      {{ end }}
+  <div class="overlay">{{ $name }}</div>
+</div>
+   {{ end }}
+{{ end }}
+
+<!-- wegen Überlappung -->
+<div class="clearfix"></div>
+
+
+{{ end }}

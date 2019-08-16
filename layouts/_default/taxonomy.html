@@ -1,0 +1,122 @@
+{{ define "title" }}
+   {{ .Title }} - {{ .Site.Title }}
+{{ end }}
+
+{{ define "main" }}
+
+{{ $aktuellesSchlagwort := .Title }}
+
+<h1>{{ .Title }}</h1>
+
+<hr>
+
+<a href="/">Home</a>
+
+<!-- Schlagworte -->
+
+<select name="schlagworte" onchange="location = this.value;">
+   <option value="">Schlagworte</option>
+{{ range $name, $taxonomy := .Site.Taxonomies.schlagworte }}
+   <option value="/schlagworte/{{ $name | urlize }}">{{ $name }}</option>
+{{ end }}
+</select>
+
+<hr>
+
+<!-- Kamera Modell -->
+
+<select name="Kamera" onchange="location = this.value;">
+   <option value="">Kamera Modell</option>
+{{ range $name, $taxonomy := .Site.Taxonomies.bild_kameras }}
+   <option value="/bild_kameras/{{ $name | urlize }}">{{ $name }}</option>
+{{ end }}
+</select>
+
+<!-- Foto Datum -->
+
+<select name="Foto Datum" onchange="location = this.value;">
+   <option value="">Foto Datum</option>
+{{ range $name, $taxonomy := .Site.Taxonomies.bild_daten }}
+   <option value="/bild_daten/{{ $name | urlize }}">{{ $name }}</option>
+{{ end }}
+</select>
+
+<!-- Blende -->
+
+<select name="Blende" onchange="location = this.value;">
+   <option value="">Blende</option>
+{{ range $name, $taxonomy := .Site.Taxonomies.bild_blenden }}
+   <option value="/bild_blenden/{{ $name | urlize }}">{{ $name }}</option>
+{{ end }}
+</select>
+
+<!-- Brennweite -->
+
+<select name="Brennweite" onchange="location = this.value;">
+   <option value="">Brennweite</option>
+{{ range $name, $taxonomy := .Site.Taxonomies.bild_brennweiten }}
+   <option value="/bild_brennweiten/{{ $name | urlize }}">{{ $name }}</option>
+{{ end }}
+</select>
+
+<!-- Verschlusszeit -->
+
+<select name="Verschlusszeit" onchange="location = this.value;">
+   <option value="">Verschlusszeit</option>
+{{ range $name, $taxonomy := .Site.Taxonomies.bild_verschluesse }}
+   <option value="/bild_verschluesse/{{ $name | urlize }}">{{ $name }}</option>
+{{ end }}
+</select>
+
+<!-- ISO -->
+
+<select name="ISO" onchange="location = this.value;">
+   <option value="">ISO</option>
+{{ range $name, $taxonomy := .Site.Taxonomies.bild_isos }}
+   <option value="/bild_isos/{{ $name | urlize }}">{{ $name }}</option>
+{{ end }}
+</select>
+
+<hr>
+
+<div id="animated-thumbnails">
+
+{{ range .Data.Pages }}
+ 
+
+    <a href="{{ .Params.pfad }}"><img src="{{ .Params.pfad }}_klein.jpg" width="20%" hight="20%" title="{{ .Params.fotoinfos }}"></a>
+     
+
+
+
+
+{{ end }}
+</div>
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#animated-thumbnails").lightGallery(
+		{
+mode:'lg-fade',
+
+		share: false,
+		thumbnail:false,
+toogleThumb:true,
+pullCaptionUp:true,
+		progressBar:false,
+		autoplay:true,
+		fourceAutoplay:true,
+		}
+	);
+        });
+    </script>
+
+
+
+
+
+{{ end }}
+
+{{ define "fusszeile" }}
+{{ end }}

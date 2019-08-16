@@ -1,0 +1,8 @@
+<a>terms.html</a>
+
+<ul>
+  {{ range .Data.Pages }}
+      <a href="{{ .Permalink }}">{{ .Title }}</a><br>
+  {{ end }}
+</ul>
+

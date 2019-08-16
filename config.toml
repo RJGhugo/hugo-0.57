@@ -1,0 +1,27 @@
+baseURL = "https://foto.g2od.ch/"
+languageCode = "en-us"
+title = "raphaels fotoseite"
+description = "Hier handelt es sich um meinen persönlichen Fotoblog"
+
+Umgebung="ENTWICKLUNG"
+
+enableRobotsTXT = "true"
+
+[params] 
+
+Fotograf = "© Raphael Good"
+Beschreibung = "Foto Blog mit meist tagesaktuellen Fotos aus der Region Zug (Schweiz), von Ausflügen oder Reisen durch Europa."
+Vorschau = "aktuell aquarell kanton waadt zug"
+Publikation = "2019-03-01"
+
+[taxonomies]
+tag = "tags"
+category = "categories"
+fotoinfo = "fotoinfos"
+schlagwort = "schlagworte"
+bild_kamera = "bild_kameras"
+bild_datum = "bild_daten"
+bild_blende = "bild_blenden"
+bild_brennweite = "bild_brennweiten"
+bild_verschluss = "bild_verschluesse"
+bild_iso = "bild_isos"

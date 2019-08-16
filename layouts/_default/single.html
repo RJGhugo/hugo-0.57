@@ -1,0 +1,89 @@
+{{ define "script" }}
+
+{{ end }}
+
+{{ define "title" }}
+   {{ .Title }} - {{ .Site.Title }}
+{{ end }}
+
+{{ define "main" }}
+
+
+<a href="/">Home</a>&nbsp;
+
+   <select name="schlagworte" onchange="location = this.value;">
+   <option value="">Schlagworte</option>
+   {{ range sort .Params.schlagworte }}
+      <option value={{ "/schlagworte/" | relLangURL }}{{ . | urlize }}>{{ . }}</option>
+   {{ end }}
+   </select>
+
+   {{ if gt .Params.fotoinfos 0 }}
+   <select name="fotoinfos" onchange="location = this.value;">
+   <option value="">Kameradaten</option>
+   {{ range sort .Params.fotoinfos }}
+      <option value={{ "/fotoinfos/" | relLangURL }}{{ . | urlize }}>{{ . }}</option>
+   {{ end }}
+   </select>
+   {{ end }}
+
+
+   {{ $senden := .Permalink }}
+   <a href="mailto:?Subject={{ .Site.Title }} - ({{ .Title }})&body={{ .Permalink }}">Bild e-mailen</a>
+
+   <br>
+<br>
+
+<!-- Bild -->
+
+{{ $breite := int .Params.bildbreite }}
+{{ $hoehe := int .Params.bildhoehe }}
+
+<!--
+<center><button class="button" type="button" onclick="gallery.init()">
+
+{{ if lt $breite $hoehe }}
+   <a href="{{ .Permalink}}"><img src = "{{ .Params.pfad }}" width="{{ div $breite 8 }}" hight="{{ div $hoehe 8 }}"></a>
+{{ end }}
+
+{{ if le $hoehe $breite }}
+   {{ if le $breite 2500 }}
+      <a href="{{ .Permalink}}"><img src = "{{ .Params.pfad }}" width="{{ div $breite 4 }}" hight="{{ div $hoehe 4 }}"></a>
+   {{ end }}
+   
+   {{ if ge $breite 2500 }}
+      <a href="{{ .Permalink}}"><img src = "{{ .Params.pfad }}" width="{{ div $breite 6 }}" hight="{{ div $hoehe 6 }}"></a>
+   {{ end }}
+{{ end }}
+
+</button></center>
+-->
+
+<center>
+{{ if lt $breite $hoehe }}
+   <img src = "{{ .Params.pfad }}" width="{{ div $breite 8 }}" hight="{{ div $hoehe 8 }}">
+{{ end }}
+
+{{ if le $hoehe $breite }}
+   {{ if le $breite 2500 }}
+      <img src = "{{ .Params.pfad }}" width="{{ div $breite 4 }}" hight="{{ div $hoehe 4 }}">
+   {{ end }}
+   
+   {{ if ge $breite 2500 }}
+      <img src = "{{ .Params.pfad }}" width="{{ div $breite 6 }}" hight="{{ div $hoehe 6 }}">
+   {{ end }}
+{{ end }}
+
+</center>
+
+
+{{ .Content }}
+
+
+{{ end }}
+
+{{ define "fusszeile" }}
+{{ end }}
+
+
+

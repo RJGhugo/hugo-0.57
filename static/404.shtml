@@ -1,0 +1,15 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN">
+
+<meta HTTP-EQUIV="REFRESH" content="0; url=https://foto.g2od.ch/">
+
+<html><head><title>Fehler 404</title>
+<style type="text/css">
+#TextGross { font:italic x-large Helvetica; }
+</style></head>
+<body>
+
+<p id="TextGross">Die gew&uuml;nschte Seite <b><!--#echo var="HTTP_HOST" --><!--#echo var="REQUEST_URI" --></b> ist nicht vorhanden...</p>
+
+</body></html>
+
+
